@@ -92,7 +92,7 @@
   .desc {
     font-size: var(--font-size-4);
     line-height: 1.5;
-    max-inline-size: 80ch;
+    max-inline-size: 60ch;
     text-wrap: pretty;
     color: white;
     @media (width < 960px) {
@@ -106,9 +106,6 @@
     block-size: var(--section-block-size);
     inset-block-start: 0;
     container-type: size;
-    
-
-    
   }
   .mobile-visual {
     display:none;
@@ -173,6 +170,24 @@
         #268321 0%,
         #00bbff 100%);     
   }
+  .content-2 {
+    --_text-gradient: linear-gradient(227deg,
+        #28dc28 0%,
+        #00bbff 100%);
+  }
+
+  .content-3 {
+    --_text-gradient: linear-gradient(227deg,
+        #1400c7 0%,
+        #b800b1 100%);
+  }
+
+  .content-4 {
+    --_text-gradient: linear-gradient(227deg,
+        #b800b1 0%,
+        #f50000 100%);
+  }
+
 
   .text-highlight {
     background: var(--_text-gradient);

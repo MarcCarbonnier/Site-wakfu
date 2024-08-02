@@ -1,4 +1,6 @@
-html{
-    background-image: url(https://cdnb.artstation.com/p/assets/images/images/027/650/927/large/fabrice-nzinzi-wkf-s04-tr-007-bg-fab-exp2.jpg?1592157560);
-
+.desc{
+    color: black;
+}
+::-webkit-scrollbar{
+    display: none;
 }

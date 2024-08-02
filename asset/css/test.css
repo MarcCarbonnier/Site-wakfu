@@ -1,275 +1,123 @@
-@layer library, reset, base, demo;
-@import 'https://unpkg.com/open-props@2.0.0-beta.5' layer(library);
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Nunito);
 
-@layer reset {
-
-  *,
-  ::before,
-  ::after {
-    box-sizing: border-box;
-  }
-
-  :where(:not(dialog)) {
-    margin: 0;
-  }
+html {
+  height: 100%;
+  overflow: hidden;
 }
 
-
-@layer demo {
-
-  .section {
-    --section-block-size: max(400px, 100dvb);
-    display: grid;
-    background-color: white;
-    min-block-size: var(--section-block-size);
-    position: relative;
-    block-size: 100%;
-    display: grid;
-
-    >* {
-      grid-area: 1/1;
-    }
-  }
-
-  .section-wrapper {
-    position: relative;
-    display: grid;
-
-    @media (width >=960px) {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    @media (width < 960px) {
-      padding-block-start: calc(var(--nav-block-size) + var(--size-7));
-      padding-block-end: var(--size-7);
-    }
-  }
-
-  .content-wrapper {
-    display: grid;
-
-    @media (width < 960px) {
-      gap: var(--size-7);
-    }
-  }
-
-  .meta {
-    display: grid;
-    gap: var(--size-3);
-  }
-
-  .content {
-    display: grid;
-    inline-size: 100%;
-    place-items: center;
-    padding-block: var(--size-7);
-    padding-inline: var(--size-5);
-
-    @media (width >=960px) {
-      padding: var(--size-10);
-      min-block-size: 100cqb;
-      place-items: center end;
-    }
-
-    @media (width < 960px) {
-      gap: var(--size-5);
-    }
-  }
-
-  .headline {
-    font-size: var(--font-size-7);
-    font-weight: var(--font-weight-4);
-    max-inline-size: var(--size-content-1);
-    text-wrap: pretty;
-
-    @media (width < 960px) {
-      font-size: var(--font-size-6);
-    }
-  }
-
-  .desc {
-    font-size: var(--font-size-4);
-    line-height: 1.5;
-    max-inline-size: 40ch;
-    text-wrap: pretty;
-
-    @media (width < 960px) {
-      font-size: var(--font-size-3);
-    }
-  }
-
-  .visual {
-    display: grid;
-    position: sticky;
-    block-size: var(--section-block-size);
-    inset-block-start: 0;
-    container-type: size;
-
-    @media (width < 960px) {
-      display: none;
-    }
-  }
-
-
-  .card-wrapper {
-    container-type: size;
-    display: grid;
-    place-items: center;
-    overflow: clip;
-
-    >* {
-      grid-area: 1/1;
-    }
-  }
-
-  .card {
-    inline-size: 70cqi;
-    border-radius: var(--radius-3);
-    scale: 0.4;
-  }
-
-  .card-img {
-    display: block;
-    inline-size: 100%;
-    block-size: 100%;
-    object-fit: cover;
-  }
-
-  .card-1 {
-    scale: 1;
-  }
-
-  .card-2 {
-    translate: -35cqi 30cqb;
-    opacity: 0.3;
-  }
-
-  .card-3 {
-    translate: 0cqi 50cqb;
-    opacity: 0.5;
-  }
-
-  .card-4 {
-    translate: 45cqi 40cqb;
-    opacity: 0.5;
-  }
-
-  .content-1 {
-    --_text-gradient: linear-gradient(227deg,
-        #1400c7 0%,
-        #00bbff 100%);
-  }
-
-  .content-2 {
-    --_text-gradient: linear-gradient(227deg,
-        #28dc28 0%,
-        #00bbff 100%);
-  }
-
-  .content-3 {
-    --_text-gradient: linear-gradient(227deg,
-        #1400c7 0%,
-        #b800b1 100%);
-  }
-
-  .content-4 {
-    --_text-gradient: linear-gradient(227deg,
-        #b800b1 0%,
-        #f50000 100%);
-  }
-
-  .text-highlight {
-    background: var(--_text-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+body { 
+  margin:0;
+  padding:0;
+	perspective: 1px;
+	transform-style: preserve-3d;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-family: Nunito;
 }
 
-@supports (animation-timeline: scroll()) {
-  body {
-    timeline-scope: --content-1, --content-2, --content-3, --content-4;
-  }
+h1 {
+   font-size: 250%
+}
 
-  .section {
-    view-timeline-name: --section;
-  }
+p {
+  font-size: 140%;
+  line-height: 150%;
+  color: #333;
+}
 
-  .content-1 {
-    view-timeline-name: --content-1;
-  }
+.slide {
+  position: relative;
+  padding: 25vh 10%;
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
+	transform-style: inherit;
+}
 
-  .content-2 {
-    view-timeline-name: --content-2;
-  }
+img {
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  width: 320px;
+  height: 240px;
+  transform: translateZ(.25px) scale(.75) translateX(-94%) translateY(-100%) rotate(2deg);
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(240,230,220, .7);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
 
-  .content-3 {
-    view-timeline-name: --content-3;
-  }
+img:last-of-type {
+  transform: translateZ(.4px) scale(.6) translateX(-104%) translateY(-40%) rotate(-5deg);
+}
 
-  .content-4 {
-    view-timeline-name: --content-4;
-  }
+.slide:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 8px 1px rgba(0, 0, 0, .7);
+}
 
-  .card {
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-  }
+.title {
+  width: 50%;
+  padding: 5%;
+  border-radius: 5px;
+  background: rgba(240,230,220, .7);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
 
-  .card-1 {
-    animation-timeline: --content-1;
-    animation-name: slide-up-first-card;
-  }
+.slide:nth-child(2n) .title {
+  margin-left: 0;
+  margin-right: auto;
+}
 
-  .card-2 {
-    animation-timeline: --content-2;
-    animation-name: slide-up-card;
-  }
+.slide:nth-child(2n+1) .title {
+  margin-left: auto;
+  margin-right: 0;
+}
 
-  .card-3 {
-    animation-timeline: --content-3;
-    animation-name: slide-up-card;
-  }
+.slide, .slide:before {
+  background: 50% 50% / cover;  
+}
 
-  .card-4 {
-    animation-timeline: --content-4;
-    animation-name: slide-up-card;
-  }
+.header {
+  text-align: center;
+  font-size: 175%;
+  color: #fff;
+  text-shadow: 0 2px 2px #000;
+}
 
-  @keyframes slide-up-first-card {
-    50% {
-      translate: 0;
-      opacity: 1;
-    }
+#title {
+  background-image: url("https://picsum.photos/640/480");
+  z-index:2;
+}
 
-    90% {
-      translate: 0 -50cqi;
-      scale: 0.6;
-    }
+#title h1 {
+ transform: translateZ(.25px) scale(.75);
+ transform-origin: 50% 100%;
 
-    100% {
-      translate: 0 -100cqi;
-      opacity: 0;
-    }
-  }
+}
 
-  @keyframes slide-up-card {
-    50% {
-      opacity: 1;
-      translate: 0;
-      scale: 1;
-    }
+#slide1:before {
+  background-image: url("https://picsum.photos/960/520");
+  transform: translateZ(-1px) scale(2);
+}
 
-    90% {
-      opacity: 0.5;
-      scale: 0.6;
-      translate: 0 -50cqb;
-    }
+#slide2 {
+  background-image: url("https://picsum.photos/960/400");
+  z-index:2;
+}
 
-    100% {
-      translate: 0 -100cqi;
-      opacity: 0;
-    }
-  }
+#slide3:before {
+  background-image: url("https://picsum.photos/980/600");
+  transform: translateZ(-1px) scale(2);
+}
+
+#slide4 {
+  background: #222;
 }
