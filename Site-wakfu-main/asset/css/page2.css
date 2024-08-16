@@ -1,0 +1,12 @@
+html{
+    background:linear-gradient(cyan, white , black , black, brown);
+}
+.desc{
+    color: black;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+.white{
+    color: white;
+}

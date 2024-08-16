@@ -1,0 +1,14 @@
+.desc {
+  color: black;
+}
+html{
+    background: linear-gradient(cyan, blue , orange , black ,black , white);
+}
+.white{
+    color: white;
+}
+.content-1 {
+    --_text-gradient: linear-gradient(227deg,
+        #fa00af 0%,
+        #7700ff 100%);     
+  }
